@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>booking</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<style type="text/css">
+		
+		body {
+			padding-top: 70px;
+  background-image: url("greybg.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   overflow: hidden;
+   }
+  
+   	.navbar{
+			overflow: auto;
+			position: absolute;
+			background-color: #e6eeff;
+			padding-left: 2%;
+			width: 100%;
+			top: 0px;
+			left:0px;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid black;
+			border-radius: 0.5em;
+			color:  black;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color:#ccddff;
+			color:black;
+			border: black 1.5px solid;
+		}
+    .formcontents{
+        position: absolute;
+        border: solid #b30000 1.5px;
+        border-radius: 0.5em;
+        top: 13%;
+        width: 80%;
+        left: 10%;
+        height: 500px;
+        padding: 1%;
+    }
+    input[type="text"], input[type="date"],input[type="email"],input[type="number"],select{
+        width: 70%;
+        height: 28px;
+        border: solid #b30000 1px;
+        border-radius: 0.5em;
+        outline: none; 
+    }
+    input[type="text"]:focus, input[type="date"]:focus,input[type="email"]:focus,input[type="number"]:focus,select:focus{
+        border:#ccddff solid 2px;
+    }
+   tr,td{
+       padding-top: 3%;
+   }
+   input[type=checkbox]
+		{
+			width: 20px;
+			height: 20px;
+        }
+        .lowbtn{
+            background-color:#b30000 ;
+            width: 35%;
+            height: 30px;
+            outline: none;
+            color: white;
+            border: solid white 1px;
+            border-radius: 0.5em;
+        }
+        .lowbtn:hover{
+            background-color: white;
+            border: solid #b30000 1px;
+            color: #b30000;
+        }
+	</style>
+</head>
+<body>
+
+	<div class="navbar">
+		<a href="/"><div class="navbar_elements">
+			Home 
+		</div></a>
+		<a href="/booking"><div class="navbar_elements">
+			Hotels 
+		</div></a>
+		<a href="/to_do"><div class="navbar_elements">
+			Day Planner
+		</div></a>
+			<a href="/wayanad"><div class="navbar_elements">
+			Wayanad
+		</div></a>
+		<a href="/goa"><div class="navbar_elements">
+			Goa
+		</div></a>
+		<a href="/kashmir"><div class="navbar_elements">
+			Kashmir
+		</div></a>
+		<a href="/sundarbans"><div class="navbar_elements">
+			Sundarbans
+		</div></a>
+		<a href="/new_review"><div class="navbar_elements">
+			Write Review
+		</div></a>
+		<a href="/view_review"><div class="navbar_elements">
+			View Reviews
+		</div></a>
+	</div>
+<div class="formcontents">
+    <h1 style="color: #b30000; text-align: center;">Book Your Hotel!</h1>
+    <table style="width: 100%;">
+    <thead>
+        <th style="width: 15%;"></th>
+        <th style="width: 35%;"></th>
+        <th style="width: 15%;"></th>
+        <th style="width: 35%;"></th>
+    </thead>
+<tbody>
+    <form action="/bookinga" method="POST" id="topform">
+    <tr>
+        <td>Name:</td>
+        <td><input type="text" placeholder="Name" name="name" id="name" style="text-transform: capitalize;" required></td>
+        <td>Email:</td>
+        <td><input type="email" placeholder="Email id" name="email", id="email" required></td>
+    </tr>
+    <tr>
+        <td>Check In date:</td>
+        <td><input type="date" name="indate" id="#indate"></td>
+        <td>Check Out date:</td>
+        <td><input type="date" name="outdate" id="#outdate"></td>
+    </tr>
+    <tr>
+        <td>Location:</td>
+        <td><select name="loc" id="loc" >
+            <option>Choose a location</option>
+            <option value="kashmir">Kashmir</option>
+            <option value="goa">Goa</option>
+            <option value="wayanad">Wayanad</option>
+            <option value="sundarbans">Sundarbans</option>
+        </select></td>
+        <td>Room type :</td>
+        <td> <select name="type" id="rt">
+            <option>Choose a room type</option>
+            <option value="regular">Regular</option>
+            <option value="premium">Premium</option>
+            <option value="executive suite">Executive Suite</option>
+            <option value="presidential suite">Presidential Suite</option>
+          </select></td>
+    </tr> 
+    <button class="lowbtn" type="submit" style="position: absolute; top: 90%; width: 12%;left: 12%; " >Show Available</button>
+</form>
+    <tr>
+        <td>
+            Airport Pickup?</td>
+          <td>  <input type="radio" id="yes" name="pickup" value="yes">
+  <label for="yes">Yes Please!- Pick me up on arrival</label><br>
+  <input type="radio" id="no" name="pickup" value="no" checked>
+  <label for="no">No Thanks - I ll find my way there</label>
+        </td>
+        <td>Breakfast Inclusive</td>
+        <td><input type="checkbox" id="breakfast"></td>
+        </tr>
+    </form>
+        <tr>
+            <td>Guests:</td>
+            <td><input type="number" max="2" placeholder="enter no. of guests per room"></td>
+            <td><span style=" text-align: center;"><b>Available Rooms:</b></span></td>
+            <td>
+             <div id="available">
+                    <form action="/bookingb" method="POST">
+                        <select name="room" id="available_select">
+                    <% for(var i=0;i<results.length;i++){ %>
+                        <%if(results[i].status!='a') {%>
+                            <option value="<%=results[i].roomid %>" disabled><strike><%= results[i].roomid %></strike> </option>
+                            <% } %> 
+                            <%if(results[i].status=='a') {%>
+                                <option value="<%=results[i].roomid %>" ><%= results[i].roomid %></option>
+                                <% } %> 
+
+                    <% } %> 
+                        </select> 
+                        <button class="lowbtn" type="submit" style="position: absolute; top: 90%; width: 12%;left: 77%; " >Book</button>
+                    </form>
+             </div>   
+        </td>
+        </tr>
+
+</tbody></table>
+<table style="width: 100%;">
+    <thead>
+        <th style="width:34%;"></th>
+        <th style="width:33%;"></th>
+        <th style="width:33%;"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"><button class="lowbtn" onclick="calcprice()" id="calcprice">Price</button></td>
+            <td style="text-align: center;"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<script type="text/javascript">
+    if("<%=signin_stat%>"!=0){
+ document.getElementById('name').defaultValue='<%=profile.fname%>  <%=profile.lname%>';
+ document.getElementById('email').defaultValue='<%=profile.email%>';
+ }
+ function calcprice(){ 
+               
+               var roomid= $("#available_select").val();
+               var price=0;
+   if(roomid.substr(1,2)=='R0'){
+      price=100;
+   }
+   if(roomid.substr(1,2)=='P0'){
+      price=200;
+   }
+   if(roomid.substr(1,2)=='E0'){
+      price=300;
+   }
+   if(roomid.substr(1,2)=='PS'){
+      price=400;
+   }
+   if( document.getElementById("breakfast").checked == true)
+   {
+    price=price+30;
+   }
+   if($('#yes').is(':checked')) { price= price+50; }
+alert("the price for this room along with the ammenities is $ "+price+" per night");
+} 
+
+</script>
+<script>
+window.onbeforeunload = function() {
+   sessionStorage.setItem("name", $('#name').val());
+   sessionStorage.setItem("indate", $('#indate').val());
+   sessionStorage.setItem("outdate", $('#outdate').val());
+   sessionStorage.setItem("rt", $('#rt').val());
+   sessionStorage.setItem("loc", $('#loc').val());
+       
+   };
+   console.log(sessionStorage.getItem("name"));
+   
+   window.onload = function() {
+   
+   var name = sessionStorage.getItem("name");
+   if (name !== null) $('#name').val(name);
+   var indate = sessionStorage.getItem("indate");
+   if (indate !== null) $('#indate').val(indate);
+   var outdate = sessionStorage.getItem("outdate");
+   if (outdate !== null) $('#outdate').val(outdate);
+   var rt = sessionStorage.getItem("rt");
+   if (rt !== null) $('#rt').val(rt);
+   var loc = sessionStorage.getItem("loc");
+   if (loc !== null) $('#loc').val(loc);
+   
+   }
+   </script>
+</body>
+</html>

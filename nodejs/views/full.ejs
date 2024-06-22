@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>write a review</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+        <style>
+            body{
+               
+	overflow-x: hidden;
+            }
+            .navbar{
+			overflow: auto;
+			position: absolute;
+			background-color: #ebebe0;
+			padding-left: 2%;
+			width: 100%;
+			top: 0px;
+			left:0px;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid black;
+			border-radius: 0.5em;
+			color:  black;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color: #8f918d;
+			color:black;
+			border: black 1.5px solid;
+		}
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="/"><div class="navbar_elements">
+				Home 
+			</div></a>
+            <a href="/booking"><div class="navbar_elements">
+                Hotels 
+            </div></a>
+            <a href="/to_do"><div class="navbar_elements">
+                Day Planner
+            </div></a>
+                <a href="/wayanad"><div class="navbar_elements">
+                Wayanad
+            </div></a>
+            <a href="/goa"><div class="navbar_elements">
+                Goa
+            </div></a>
+            <a href="/kashmir"><div class="navbar_elements">
+                Kashmir
+            </div></a>
+            <a href="/sundarbans"><div class="navbar_elements">
+                Sundarbans
+            </div></a>
+            <a href="/new_review"><div class="navbar_elements">
+                Write Review
+            </div></a>
+            <a href="/view_review"><div class="navbar_elements">
+                View Reviews
+            </div></a>
+        </div>
+        <div style="margin-left: 25%; margin-top: 7%;padding: 2%;width: 50%; background-color: rgba(255, 2555,255, 0.2); border: solid white 1px; border-radius: 0.5em;">
+
+           <div style="text-align: center; padding-top: 2%;"><%= review.place %></div>
+          <% var x= review.rating %>
+          <p>Rating:<%= review.rating %>/10</p>
+           <br>
+           <%= review.review %>
+           <div style="margin-left: 98%;"><span class="iconify" data-icon="octicon-trashcan" data-inline="false" onclick="del()"></span></div>
+          </div>  
+          </div>
+          
+        <% if(review.place== 'Kashmir'){ %>
+        <script>$('body').css('background-color', '#660033');
+        $('body').css('color', 'white');</script>
+        <% } %> 
+        <% if(review.place== 'Goa'){ %>
+        <script>$('body').css('background-color', '#990000');
+         $('body').css('color', 'white');</script>
+        <% } %> 
+        <% if(review.place== 'Sundarbans'){ %>
+        <script>$('body').css('background-color', ' #00091a');
+        $('body').css('color', 'white');</script> 
+        <% } %> 
+        <% if(review.place== 'Wayanad'){ %>
+        <script>$('body').css('background-color', ' #003333');
+        $('body').css('color', 'white');</script>
+        <% } %> 
+        <script>
+            function del()
+            {
+                var x= confirm("Do you want to delete this review?");
+                if(x == true)
+                {
+                    window.location.href="/del_review/<%=review._id %> ";
+                }
+            }
+        </script>
+    </body>
+</html>

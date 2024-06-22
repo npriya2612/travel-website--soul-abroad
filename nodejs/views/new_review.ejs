@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>write a review</title>
+        <style>
+            body{
+                background-image: url("bgmain.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment: fixed; 
+	overflow-x: hidden;
+            }
+            .navbar{
+			overflow: auto;
+			position: absolute;
+			background-color: #d1e0e0;
+			padding-left: 2%;
+			width: 100%;
+			top: 0px;
+			left:0px;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid black;
+			border-radius: 0.5em;
+			color:  black;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color: #8f918d;
+			color:black;
+			border: black 1.5px solid;
+        }
+        input[type="number"],select, textarea{
+            width: 60%;
+            border : #b30000 solid 1.5px;
+            border-radius: 0.5em;
+            outline: none;
+        }
+        input[type="number"]:focus,select:focus, textarea:focus{
+            border:#e6e6ff solid 2px ;
+        }
+        input[type="number"],select{
+            height: 25px;
+        }
+        .postbtn{
+            background-color: #b30000;
+            outline: none;
+            border: white solid 1px;
+            width: 28%;
+            height: 30px;
+            border-radius: 0.5em;
+            margin-top: 2%;
+            color: white;
+        }
+        .postbtn:hover{
+            border:black solid 1px;
+            color: black;
+            background-color: #e6e6ff;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="/"><div class="navbar_elements">
+				Home 
+			</div></a>
+            <a href="/booking"><div class="navbar_elements">
+                Hotels 
+            </div></a>
+            <a href="/to_do"><div class="navbar_elements">
+                Day Planner
+            </div></a>
+                <a href="/wayanad"><div class="navbar_elements">
+                Wayanad
+            </div></a>
+            <a href="/goa"><div class="navbar_elements">
+                Goa
+            </div></a>
+            <a href="/kashmir"><div class="navbar_elements">
+                Kashmir
+            </div></a>
+            <a href="/sundarbans"><div class="navbar_elements">
+                Sundarbans
+            </div></a>
+            <a href="/new_review"><div class="navbar_elements">
+                Write Review
+            </div></a>
+            <a href="/view_review"><div class="navbar_elements">
+                View Reviews
+            </div></a>
+        </div>
+        <div style="width: 50%; margin-left: 25%; background-color: rgba(255,255,255,0.1); border: white solid 1px ; border-radius: 0.5em; margin-top: 7%; padding: 2%;">
+            <form action="/view_review" method="POST">
+            <table style="width: 100%;">
+                <thead>
+                    <th style="width: 40%; text-align: right;"></th>
+                    <th style="width: 60%;"></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Location:</td>
+                        <td>
+                            <select name="place" id="loc"><option value="Kashmir">Kashmir</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Wayanad">Wayanad</option>
+                                <option value="Sundarbans">Sundarbans</option></select>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>Rating:</td>
+                       <td><input type="number" name="rating" max="10" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Review:</td>
+                       <td> <textarea name="review" cols="30" rows="10"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button style="margin-left: 40%;" type="submit" class="postbtn">Post</button>
+        </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>home page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="main_ext.js"></script>
+
+	<link rel="stylesheet" href="main_ext.css">
+	<style type="text/css">
+		.grid-container {
+  display: grid;
+  grid-template-columns: auto auto ;
+  background-color: #b30000;
+  padding: 10px;
+}
+.grid-item {
+  background-color: #b30000;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  text-align: center;
+}
+	</style>
+</head>
+<body >
+    <div class="infobg" id="infobg"><button class="cross_button" onclick="close_info()">X</button></div>
+    <div class="blogcontent" id="blogcontent"></div>
+	
+	<div id="front" ><div class="divbg"><div class="box">
+
+<img src="sailing_goa.PNG" style="position: absolute; width: 20%; height: 28%; margin-top: 10%; margin-left: 50%; opacity: 70%;">
+<img src="kashmir1.PNG" style="position: absolute; width: 20%; height: 28%; margin-top: 10%; margin-left: 72%;opacity: 70%;">
+<img src="hotair_goa.PNG" style="position: absolute; width: 20%; height: 28%; margin-top: 25%; margin-left: 50%;opacity: 70%;">
+<img src="kashmir2.PNG" style="position: absolute; width: 20%; height: 28%; margin-top: 25%; margin-left: 72%;opacity: 70%;">
+		<div class="heading1"><span style="font-size: 80px; color: white;">Soul Aboard</span><br><span style="font-size: 22px; color: white;">The one stop site for stress free travel planning</span><br><button onclick="explore()" class="buttonexp">Explore</button></div>
+	</div>
+	</div></div>
+	<div id="mainfront">
+<div class="fixed_navbar" id="title"><form action="/indexloc" method="Post"><input type="search" name="loc" placeholder="Enter Location" style="text-align: center;"><button style="background-color:#000033; color:white; outline:none; border: solid #000033 1px;font-size:20px;padding-left:1%; "><i class="fa fa-search"></i></button></form>
+<a href="/download" style="position: absolute; right: 9.5%; top: 18px; text-decoration: none; color: white;">download catalogue</a>
+  <button class="auth_btn" onclick="window.location.href='/signin'" id="signinbtn" style="position: absolute; right: 25px; top: 13px;">Sign In</button >
+    <button style="background-color:#000033; color:white; outline:none; border: solid #000033 1px;font-size:10px; position:absolute; right: 20px; top:20px; display: none;" onclick="show()" id="dropdown">▼</button></div>
+    <div class="navbar">
+		<a href="/"><div class="navbar_elements">
+			Home 
+		</div></a>
+		<a href="/booking"><div class="navbar_elements">
+			Hotels 
+		</div></a>
+		<a href="/to_do"><div class="navbar_elements">
+			Day Planner
+		</div></a>
+			<a href="/wayanad"><div class="navbar_elements">
+			Wayanad
+		</div></a>
+		<a href="/goa"><div class="navbar_elements">
+			Goa
+		</div></a>
+		<a href="/kashmir"><div class="navbar_elements">
+			Kashmir
+		</div></a>
+		<a href="/sundarbans"><div class="navbar_elements">
+			Sundarbans
+		</div></a>
+		<a href="/new_review"><div class="navbar_elements">
+			Write Review
+		</div></a>
+		<a href="/view_review"><div class="navbar_elements">
+			View Reviews
+		</div></a>
+	</div>
+<div id="profile_view" style="padding:1%;position: absolute; width: 15%; height: 120px;display: none; color:white;background-color:#333; right:0px; top:7% ;border:solid white 1px;border-radius: 0.5em;">
+<h4 style="text-transform: capitalize; text-align: center;"><%= profile.fname%>  <%= profile.lname%></h4> <br>
+Email: <%= profile.email%>
+Phone Number: <%= profile.no%>
+<br>
+<button style="margin-left: 35%;margin-top: 5%; padding: 1%;width: 30%; outline: none; border: white solid 1px; border-radius: 0.5em;" onclick="window.location.href='/logout'">logout</button>
+</div>
+
+<div id="maincontent">
+<h1 class="heading" >Soul Aboard- To Your Travel Muse</h1>
+
+<h1 class="subheadings" id="monuments">Majestic Monuments of India</h1><hr width="60%" style="position: absolute; top: 200px;left:40%;
+border-top:2px solid #b30000;">
+<p class="infobits">India is one of the most beautiful countries in the world and is best known for its colourful culture and fascinating heritage. Its grand monuments, like the Taj Mahal act as strong pillars of the rich and deep history that India possesses. From their splendid architecture to a strong legacy, the historical monuments of India speak volumes. Most of these Indian monuments were primarily built under the regime of Rajputana, Dravidian and Mughal emperors. The monuments of India are speaking stones of the glory of its rulers and the brilliance of artisans in ancient India. Due to the incredible beauty of India and the constant efforts of the government in maintaining the heritage sites, India tourism has flourished rapidly witnessing an increase in the number of travellers from all around the world.</p>
+<div class="img-grid-container">
+  <div class="img-grid-item"><a href="#title"><img src="blogpt1.PNG" onmouseover="showpanel(0)" onmouseout="hidepanel(0)" onclick="info(0)"></a><div class="panel">Lotus temple<br><div style="margin: 0px; font-size: 10px;">click to read more</div></div></div>
+  <div class="img-grid-item"><a href="#title"><img src="blogpt2.PNG" onmouseover="showpanel(1)" onmouseout="hidepanel(1)" onclick="info(1)"></a><div class="panel">Taj Mahal<br><div style="margin: 0px; font-size: 10px;">click to read more</div>
+ </div></div>
+  <div class="img-grid-item"><a href="#title"><img src="blogpt3.PNG" onmouseover="showpanel(2)" onmouseout="hidepanel(2)" onclick="info(2)"></a><div class="panel">Mysore Palace<br><div style="margin: 0px; font-size: 10px;">click to read more</div></div></div>
+</div>
+<br><br><br><br>
+
+<div class="img-grid-container">
+  <div class="img-grid-item"><a href="#title"><img src="charminar.PNG" onmouseover="showpanel(3)" onmouseout="hidepanel(3)" onclick="info(3)"></a><div class="panel">CharMinar<br><div style="margin: 0px; font-size: 10px;">click to read more</div></div></div>
+  <div class="img-grid-item"><a href="#title"><img src="hawa_mahal.PNG" onmouseover="showpanel(4)" onmouseout="hidepanel(4)" onclick="info(4)"></a><div class="panel">Hawa Mahal<br><div style="margin: 0px; font-size: 10px;">click to read more</div>
+ </div></div>
+  <div class="img-grid-item"><a href="#title"><img src="india_gate.PNG" onmouseover="showpanel(5)" onmouseout="hidepanel(5)" onclick="info(5)"></a><div class="panel">India Gate<br><div style="margin: 0px; font-size: 10px;">click to read more</div></div></div>
+</div>
+<br><br><br><br><br>
+<h1 class="subheadings" id="ii">Incredible India</h1><hr width="80%" style="position: absolute; top: 1045px;left:23%;
+border-top:2px solid #b30000;">
+<p class="infobits">India is one of the most beautiful countries in the world and is best known for its diverse landforms. From the Great Himalayas in the north to the great coastal line of 4671 miles, India shows great diversity in landform as well as culture and lifestyle as a reprecussion of adaptation. India is a land of mountains, valleys , rivers , beaches, mangrooves, plains and plateaues . India's serene natural beauty in every direction is absolutely jaw dropping and alluring. In the north we have Jammu and Kashmir.Jammu and Kashmir is world famous for its scenic splendour, snow-capped mountains, plentiful wildlife, exquisite monuments, hospitable people and local handicrafts. Your trip to Jammu and Kashmir will be a memorable one as the state will not only appeal to you with its scenic beauty and snow-covered mountain ranges, but the adventure sports will take you to a different world.In the east we have Sundarbans .The Sundarbans is a mangrove area in the delta formed by the confluence of the Ganges, Brahmaputra and Meghna Rivers in the Bay of Bengal. In the south , Wayanad is one of the must see places as it captivates visitors with its sceanic beauty and is the perfect place to relax. It's no secret that Goa,in the west is a favourite beach destination in India. It has a laid-back lifestyle, hippie vibe, glorious scenic beaches, natural tranquillity, beach sports, and awesome parties.</p>
+<div class="loc_navbar"><div class="loc_navbar_elements" style="background-color:#ffa31a">North India</div><div class="loc_navbar_elements">East India</div><div class="loc_navbar_elements">South India</div><div class="loc_navbar_elements">West India</div></div>
+
+<div class="scrollmenu">
+	<button class="arrowbuttons" style="left:20px;" onclick="left()"><</button>
+	<button class="arrowbuttons" style="right:15px;" onclick="right()">></button>
+  <img src="kashmir1.PNG" class="scroll-img">
+  <img src="kashmir2.PNG" class="scroll-img">
+  <img src="kashmir3.PNG" class="scroll-img">
+  <img src="east1.PNG" class="scroll-img">
+  <img src="east2.PNG" class="scroll-img">
+  <img src="east3.PNG" class="scroll-img">
+  <img src="rafting.PNG" class="scroll-img">
+  <img src="nightcamp.PNG" class="scroll-img">
+  <img src="trek.PNG" class="scroll-img">
+  <img src="west1.PNG" class="scroll-img">
+  <img src="west2.PNG" class="scroll-img">
+  <img src="west3.PNG" class="scroll-img">
+</div>
+<footer style="background-color: #b30000; padding: 10px; color: white; text-align:justify;"><h1 align="center">Get In Touch</h1>
+<p style="font-size: 20px;">For any queries contact:<br>
+<div class="grid-container">
+  <div class="grid-item">Hemang Paliwal</div>
+  <div class="grid-item">Arshita Marwaha</div>
+  <div class="grid-item">Phone Number: 9227711036</div>  
+  <div class="grid-item">Phone Number: 9927448186</div>
+  <div class="grid-item">Email: hemang@gmail.com</div>
+  <div class="grid-item">Email:arshita@gamil.com</div>  
+</div>
+</footer> 
+</div>
+</div>
+<script>
+if("<%=signin_stat%>"!=0){
+    document.getElementById('signinbtn').textContent='<%=profile.fname%>';
+    document.getElementById('dropdown').style.display='block';
+    
+}
+else{
+    document.getElementById('signinbtn').textContent='Sign In';
+    document.getElementById('dropdown').style.display='none';
+}
+function show(){
+    $('#profile_view').toggle();
+}
+
+</script>
+</body>
+</html>

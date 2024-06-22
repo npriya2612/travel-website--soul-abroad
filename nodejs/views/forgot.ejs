@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>booking</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<style type="text/css">
+		
+		body {
+			padding-top: 70px;
+  background-image: url("greybg.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   overflow: hidden;
+   }
+  
+   	
+    .formcontents{
+        position: absolute;
+        border: solid #b30000 1.5px;
+        border-radius: 0.5em;
+        top: 13%;
+        width: 50%;
+        left: 25%;
+        height: 400px;
+        padding: 1%;
+    }
+    input[type="text"], input[type="date"],input[type="email"],input[type="number"],input[type="password"],select{
+        width: 70%;
+        height: 28px;
+        border: solid #b30000 1px;
+        border-radius: 0.5em;
+        outline: none; 
+    }
+    input[type="text"]:focus, input[type="date"]:focus,input[type="email"]:focus,input[type="number"]:focus,select:focus,input[type="password"]:focus{
+        border:#ccddff solid 2px;
+    }
+   tr,td{
+       padding-top: 3%;
+   }
+   input[type=checkbox]
+		{
+			width: 20px;
+			height: 20px;
+        }
+        .lowbtn{
+            background-color:#b30000 ;
+            width: 35%;
+            height: 30px;
+            outline: none;
+            color: white;
+            border: solid white 1px;
+            border-radius: 0.5em;
+        }
+        .lowbtn:hover{
+            background-color: white;
+            border: solid #b30000 1px;
+            color: #b30000;
+        }
+	</style>
+</head>
+<body>
+
+<div class="formcontents">
+    <h1 style="color: #b30000; text-align: center;">Reset your Password</h1>
+    <table style="width: 100%;">
+    <thead>
+        <th style="width: 40%;"></th>
+        <th style="width: 60%"></th>
+        
+    </thead>
+<tbody>
+    <form action="/change" method="POST">
+    <tr><td>    Username:</td><td> <input type="email" name="email" placeholder="enter username/email"></td></tr>
+        <div>
+      <tr><td>  new password:</td><td><input type="Password" name="pwd" placeholder="password" class="inputs" id="password"></td></tr></div>
+      <tr><td>confirm new password:</td><td><input type="Password" name="cpwd" placeholder=" confirm password" class="inputs" id="password"></td></tr></div>
+        </tbody></table><br><br><br>
+  <button class="lowbtn" style="margin-left: 35%;">reset</button></form>
+
+</div>
+
+</body>
+</html>

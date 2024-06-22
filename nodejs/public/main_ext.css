@@ -1,0 +1,359 @@
+*{
+			margin:0px;
+			padding: 0px;
+		}
+		body{
+			overflow: hidden;
+		}
+
+		.fixed_navbar{
+			position: sticky;
+			background-color: #000033;
+			width: 100%;
+			padding: 10px 5px 10px 5px;
+		}
+		input[type="search"]
+		{
+			border:1px solid white;
+			border-radius:0.5em;
+			height: 30px;
+			width:20%;
+			padding: 5px;
+			margin-left: 15px;
+		}
+		.auth_btn
+		{
+			float: right;
+			margin-right: 10px;
+			width: 7%;
+			height: 30px;
+			background-color: #000033;
+			color: white;
+			border: none;
+		}
+		.heading{
+			color: #000033;
+			text-shadow: 2px 2px #e0e0eb;
+			font-size: 50px;
+			text-align: center;
+		}
+		.navbar{
+			overflow: auto;
+			position: relative;
+			background-color: #ffa31a;
+			padding-left: 2%;
+			width: 100%;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid #000033;
+			border-radius: 0.5em;
+			color:  #000033;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color: #ffb84d;
+			color: black;
+			border: black 1.5px solid;
+		}
+		.scrollmenu {
+	position: relative;
+  	overflow: auto;
+  	white-space: nowrap;
+  	width: 100%;
+  	height: 40%;
+  	overflow-y: hidden;
+  	z-index: 1;
+  	padding: 10px;
+}
+.scrollmenu::-webkit-scrollbar {
+  display: none;
+}
+.scroll-img
+{
+	width: 30%;
+	height: 300px;
+	border:none;
+	margin: 10px;
+}
+.scroll-img:hover{
+	border:2px solid #000033;
+}
+.arrowbuttons
+{
+	position: absolute;
+	top: 50%;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	z-index: 2;
+	font-size: 30px;
+	outline: none;
+}
+.arrowbuttons:hover{
+	border: none;
+	font-size: 40px;
+}
+.loc_navbar{
+			overflow: auto;
+			position: relative;
+			background-color: grey;
+		}
+.loc_navbar_elements{
+			width: 24.8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid #e0e0eb;
+			color:  #000033;
+			text-align: center;
+			padding-top: 5px;	
+}
+		.img-grid-container {
+  display: grid;
+  position: relative
+  width: 100%;
+  height: 250px;
+  grid-template-columns: auto auto auto;
+
+  }
+  .img-grid-item {
+  border: 15px solid white;
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.panel{
+	position: absolute;
+	width: 100%;
+	background-color: rgba(224, 224, 235,0.5);
+	top: 80%;
+	height: 18%;
+	display: none;
+	color:  #b30000;
+	border-radius:0px 0px 0.5em 0.5em;
+}
+.subheadings{
+padding-left: 10px;
+font-size: 40px;
+color: #b30000;
+}
+.infobg{
+		position: absolute;
+		width: 60%;
+		height: 60%;
+  background-image: url("sahara.PNG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 8;
+  display: none;
+  top: 20%;
+  left:20%;
+}
+.blogtextheading{
+	font-size: 40px;
+	text-align: center;
+	font-family: garamont;
+}
+.blogtext{
+	font-family: arial;
+	text-align: justify;
+	font-size: 20px;
+}
+ img
+ {
+ 	position: relative;
+ 	width: 400px;
+ 	height: 300px;
+ 	border-radius: 0.5em;
+ }
+	.divbg{
+		position: absolute;
+		width: 105%;
+		height: 100%;
+  background-image: url("sahara.PNG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 3;
+  top: 0px;
+  left:0px;
+}
+
+.box{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 4;
+	top: 0px;
+}
+.panel1{
+	position: absolute;
+	border-radius: 0.5em;
+	width: 20%;
+	height: 28%;
+	margin-top: 10%;
+	margin-left: 50%;
+	background-color: rgba(0,0, 0,0.7);
+}
+.panel1:hover{
+	background-color: rgba(0,0,0,0.5);
+	border:1px white solid ;
+	border-radius: 0.5em;
+}
+.panel1_text{
+	color: black;
+	margin-top: 80px;
+	margin-left: 80px;
+	font-size: 20px;
+}
+
+.heading1{
+	position: relative;
+	margin-left: 7%;
+	margin-top: 20%;
+}
+.buttonexp{
+	width: 15%;
+	font-size: 20px;
+	outline: none;
+	border-radius: 0.7em;
+	border: none;
+	padding: 5px;
+	margin-top: 8px;
+}
+.buttonexp:hover{
+	background-color: rgba(0,0,0,0.7);
+	color: white;
+}
+.infobits{
+	font-size: 20px;
+	text-align: justify;
+	margin: 10px 15px;
+}
+.cross_button{
+	background-color: rgba(0,0,0,0);
+	outline: none;
+	color: red;
+	border:none; 
+	float: right;
+	font-size: 30px;
+	padding:2%;
+}
+.blogcontent{
+	position: absolute;
+	margin-top:13%;
+	margin-left: 23%; 
+	padding: 2%;
+	width: 50%;
+	height: 40%;
+	background-color: rgba(0,0,0,0.7);
+	z-index: 9;
+	display: none;
+	text-align: justify;
+	border-radius: 0.5em;
+}
+.signuppane{
+			width: 27%;
+		height:500px;
+		display: none;
+		position:fixed;
+		top: 10%;
+		right:500px;
+		border:2px solid black;
+		border-radius:20px;
+		z-index: 16;
+		padding-left: 5px;
+		}
+		.signuppane1{
+			width: 27%;
+		height:500px;
+		display: block;
+		position:fixed;
+		top: 10%;
+		right:500px;
+		border:2px solid black;
+		border-radius:20px;
+		z-index: 17;
+		padding-left: 5px;
+		}
+input[type="email"],input[type="password"],input[type="text"]
+{
+height: 38px;
+	width: 90%;
+	border: 1px black solid;
+	border-radius: 20px;
+	text-align:center;
+	background-color: white;
+	padding-left: 5px;
+	margin-left: 10px;
+
+}
+input[type="email"]:focus,input[type="password"]:focus,input[type="text"]:focus
+{
+border-color:#6d706c
+	;
+	border-width: 3px;
+	outline: none;
+}
+.sign_in_google{
+	height: 30px;
+	text-align: center;
+	width: 70%;
+	padding: 3px;
+	padding-top: 15px;
+	margin-top: 5%;
+	margin-left: 15%;
+	border: 1px black solid;
+	border-radius: 20px;
+	text-align:center;
+	background-color: black;
+	color: white;
+}
+#submit_sign_in{
+	color:white;
+	height: 38px;
+	width: 130%;
+	border: 1px black solid;
+	border-radius: 20px;
+	text-align:center;
+	background-color: white;
+	padding-left: 5px;
+	padding-top: 5px;
+	margin-left: 10px;
+	outline: none;	
+}
+#submit_sign_in:hover,.sign_in_google:hover, .signinbtn:hover{
+cursor: pointer;
+font-size: 17px;
+}
+.signinbtn{
+	border: black 1px solid;
+	background-color: black;
+	color: white;
+	height: 30px;
+	text-align: center;
+	font-size: 15px;
+	border-radius: 20px;
+	outline: none;
+	width: 70%;
+	height: 50px;
+	margin-top: 5%;
+	margin-left: 15%;
+}
+
+.signuplinks{
+	text-decoration: none; 
+	color: black;
+}
+.signuplinks:hover{
+	text-decoration: underline;
+	color: red;
+}

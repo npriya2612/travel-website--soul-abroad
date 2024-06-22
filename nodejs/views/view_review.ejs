@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+        <title>write a review</title>
+        <style>
+            body{
+                background-image: url("vrevbg.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment: fixed; 
+	overflow-x: hidden;
+            }
+            .navbar{
+			overflow: auto;
+			position: absolute;
+			background-color: #ebebe0;
+			padding-left: 2%;
+			width: 100%;
+			top: 0px;
+			left:0px;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid black;
+			border-radius: 0.5em;
+			color:  black;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color: #8f918d;
+			color:black;
+			border: black 1.5px solid;
+		}
+        .delete{
+            text-decoration: none;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="/"><div class="navbar_elements">
+				Home 
+			</div></a>
+            <a href="/booking"><div class="navbar_elements">
+                Hotels 
+            </div></a>
+            <a href="/to_do"><div class="navbar_elements">
+                Day Planner
+            </div></a>
+                <a href="/wayanad"><div class="navbar_elements">
+                Wayanad
+            </div></a>
+            <a href="/goa"><div class="navbar_elements">
+                Goa
+            </div></a>
+            <a href="/kashmir"><div class="navbar_elements">
+                Kashmir
+            </div></a>
+            <a href="/sundarbans"><div class="navbar_elements">
+                Sundarbans
+            </div></a>
+            <a href="/new_review"><div class="navbar_elements">
+                Write Review
+            </div></a>
+            <a href="/view_review"><div class="navbar_elements">
+                View Reviews
+            </div></a>
+        </div>
+        <div style="margin-left: 25%; margin-top: 7%;padding: 2%;width: 50%; background-color: rgba(255, 2555,255, 0.2); border: solid white 1px; border-radius: 0.5em;">
+            <h2>Reviews</h2>
+           <% for (var i =0; i<reviews.length ;i++) {%>
+            <a href="/view_review/<%=reviews[i]._id %> " style="text-decoration: none; color: black;">
+            <div style="border: white solid 1px; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;">
+           <div style="text-align: center; padding-top: 2%;"><%= reviews[i].place %></div>
+          <% var x= reviews[i].rating %>
+          <table style="width: 100%;">
+            <thead>
+                <th style="width: 90%;"></th>
+                <th style="width: 10%;"></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+          <%for (var j=0;j<x;j++){ %>
+             <img src="remstar.png" alt="star" width="4%;"> 
+          <% } %></td>
+          <td>Rating:<%= reviews[i].rating %>/10</td>
+        </tr>
+        </tbody>
+        </table>
+           <br>
+           <%= reviews[i].review.substring(0,250); %>
+           ...<br><br> <div style="color:#990000;">click to read more →</div>
+        </a>
+          </div>
+           <% } %>  
+           <% if(reviews.length==0){ %>
+            <%= 'There are no posts yet'%>
+           <% } %>     
+          </div>
+        </div>
+      </body>
+</html>

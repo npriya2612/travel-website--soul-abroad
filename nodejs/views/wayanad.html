@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>activities</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="activities1.js"></script>
+	<script type="text/javascript" src="click.js"></script>
+	<link rel="stylesheet" type="text/css" href="slideshow.css">
+	<style type="text/css">
+			body{
+				background-image: url("white_background.jpg");
+				background-repeat:no-repeat;
+				background-size:cover;
+				background-attachment: fixed;}
+			th{
+				color: #ff8e1c;
+				font-size: 30px;
+			}
+			.img_class{
+				padding-top: 0px;
+			}
+			.content_class{
+				font-size: 20px;
+				padding:10px;
+				text-align: justify;
+				font-family: sans;
+			}
+			.name{
+				font-size: 30px;
+				font-family: arial impact;
+				color: #000033;
+			}
+			.headings{
+				color: #4bbbf2;
+			}
+			img{
+				border-radius: 0.5em;
+			}
+			p{
+				text-align: justify;
+				font-size: 20px;
+			}
+			button{
+				background-color: #000033;
+				border: white 1px solid;
+				cursor: pointer;
+				color: white
+			}
+			button:active{
+				border: 1px solid white;
+			}
+			h1{
+				color: #000033;
+				margin-top: 5%;
+				text-align: center;
+				font-family: times new roman;
+				font-size: 35px;
+			}
+
+				.navbar{
+			overflow: auto;
+			position: absolute;
+			background-color: #52527a;
+			padding-left: 2%;
+			width: 100%;
+			top: 0px;
+			left:0px;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid white;
+			border-radius: 0.5em;
+			color:  white;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color: #666699;
+			color:white;
+			border: white 1.5px solid;
+		}
+
+			.panel {
+  padding:0px;
+  display: none;
+}
+.weatherapp{
+    width: 50%;
+    margin: 80px auto;
+}
+	</style>
+	<script type="text/javascript">
+		var http_request=new XMLHttpRequest();
+		http_request.onreadystatechange=function(){
+		if(http_request.readyState==4){
+		var data=(http_request.responseText);
+		var obj= JSON.parse(data);
+		document.getElementById("tempvalue").innerHTML=((Number(obj.main.temp)-273)).toFixed(2)  ;
+		document.getElementById("feelslike").innerHTML=(Number(obj.main.feels_like)-273).toFixed(2) ;
+		document.getElementById("humidity").innerHTML= obj.main.humidity;
+		document.getElementById("pressure").innerHTML= obj.main.pressure;
+		document.getElementById("visibility").innerHTML=  obj.visibility;
+		document.getElementById("status").innerHTML= obj.weather[0].main;
+		}
+		}
+		http_request.open("GET","http://api.openweathermap.org/data/2.5/weather?q=Thiruvananthapuram&appid=aa6075d29abd22a7bfc445275aaf0888",true);
+		http_request.send();
+		
+			</script>
+</head>
+<body ng-app="myModule" >
+	<div ng-controller="myController">
+		<div class="navbar">
+			<a href="/"><div class="navbar_elements">
+				Home 
+			</div></a>
+			<a href="/booking"><div class="navbar_elements">
+				Hotels 
+			</div></a>
+			<a href="/to_do"><div class="navbar_elements">
+				Day Planner
+			</div></a>
+				<a href="/wayanad"><div class="navbar_elements">
+				Wayanad
+			</div></a>
+			<a href="/goa"><div class="navbar_elements">
+				Goa
+			</div></a>
+			<a href="/kashmir"><div class="navbar_elements">
+				Kashmir
+			</div></a>
+			<a href="/sundarbans"><div class="navbar_elements">
+				Sundarbans
+			</div></a>
+			<a href="/sundarbans"><div class="navbar_elements">
+				Write Review
+			</div></a>
+			<a href="/sundarbans"><div class="navbar_elements">
+				View Reviews
+			</div></a>
+		</div>
+		<div class="weatherapp">
+			<h1 align="center" style="color: #ff8e1c;" id="location">Wayand , IN</h1>
+			<div>
+				<div style="width: 50%; float:left"><span id="symbol"></span><p ><span style="color: #4bbbf2; font-weight: 700; font-size: 23px;">Temp: </span> <span id="tempvalue"></span> <span>&deg;C</span> </p><p ><span style="color: #4bbbf2; font-weight: 700; font-size: 23px;">Feels Like: </span>  <span id="feelslike""></span> <span>&deg;C</span></p><p><span style="color: #4bbbf2; font-weight: 700; font-size: 23px;">Status: </span> <span id="status"></span></p></div>
+				<div style="width: 50%; float: left;padding-left: 20%;">
+					<p ><span style="color: #4bbbf2; font-weight: 700; font-size: 23px;">Humidity:</span> <span id="humidity"></span></p>
+					<p ><span style="color: #4bbbf2; font-weight: 700; font-size: 23px;">Pressure:</span> <span id="pressure"></span></p>
+					<p ><span style="color: #4bbbf2; font-weight: 700; font-size: 23px;">Visibility:</span> <span id="visibility"></span></p>
+				
+				</div>
+			</div>
+		</div>
+	
+		<div ng-controller="myController">
+			
+		
+		
+		
+		<!-- image slider -->
+			<div>
+				<div class="container">
+		<div class="slide fade" style="position: relative;">
+			<img class="slideshow_img" src="trek.PNG">
+		</div>
+		<div class="slide fade" style="position: relative;">
+			<img class="slideshow_img" src="ziplining.PNG">
+		</div>
+		<div class="slide fade" style="position: relative;">
+			<img class="slideshow_img" src="rafting.PNG">
+		</div>
+		<div class="slide fade" style="position: relative;">
+			<img class="slideshow_img" src="nightcamp.png">
+		</div>
+		</div>
+		<br>
+		<div style="text-align:center">
+		  <span class="box">NightCamp</span> 
+		  <span class="box">Ziplining</span> 
+		  <span class="box">Rafting</span>
+		  <span class="box">Hiking</span> 
+		</div>
+		<script type="text/javascript">
+		var index = 0;
+		image_slider();
+		
+		function image_slider() {
+		  var i;
+		  var slides = document.getElementsByClassName("slide");
+		  var dots = document.getElementsByClassName("box");
+		  $(slides).css("display","none");     
+		  $(dots).removeClass("active");
+		  $(slides[index]).css("display","block");  
+		  $(dots[index]).addClass("active");
+		  index=(index+1)%(slides.length);
+		}
+		 setInterval(image_slider, 4000);
+		</script>		
+			</div>
+			<br><br><br>
+		
+			<div style="width: 90%;margin: auto auto"><b class="headings " style="padding-left: 30px;font-size: 30px">Order By:</b> <select style="padding-left: 20px;font-size: 20px" ng-model="sort_by">
+				<option value="name">Alphabetically Asc</option>
+				<option value="-name">Alphabetically Desc</option>
+				<option value="ratings">Ratings Acs</option>
+				<option value="-ratings"> Ratings Desc</option>
+			</select>
+			<b class="headings" style="padding-left: 30px;font-size: 30px">Search:</b><input style="padding-left: 20px;font-size: 20px" type="text" name="Search" ng-model="search_by.name">
+		<table width="100%" align="center" >
+			</div>
+			<br><p></p>
+			<thead>
+				<tr>
+				<th width="25%"> Images</th>
+				<th width="70%"> Description</th>
+				<th width="5%"> Ratings</th>
+				</tr>
+			</thead>
+			<tbody >
+				<tr ng-repeat="activity in activities | filter:search_by |orderBy:sort_by ">
+					<td class="img_class">
+						<img ng-src="{{activity.image}}" width="100%" height="250px">
+					</td>
+					<td class="content_class">
+						<div class="headings name">
+							{{activity.name}}
+						</div>
+						{{activity.desc1}}
+						<br>
+						<div class="panel">
+							{{activity.desc2}}
+						</div>
+						<button id="{{activity.id}}" class="read_more">
+							Read More
+						</button>
+					</td>
+					<td style="text-align:center;font-size: 25px; ">
+						{{activity.ratings}}<img src="star.jfif" style="width: 20px;height: 20px;">
+					</td>
+				</tr>		
+			</tbody>
+		</table>
+		</div>
+		</body>
+		</html>

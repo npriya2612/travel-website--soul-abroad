@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		.mainframe{
+			width: 35%;
+			height:600px;
+			border:#b30000 solid 1px;
+			border-radius: 0.5em;
+			margin-left: 32.5%;
+			margin-top: 1%;
+			padding: 1%;
+		}
+		.inputs{
+			width: 90%;
+			border: #b30000 solid 1px;
+			border-radius: 0.5em;
+			height: 30px;
+			margin: 2%;
+			padding:1%;
+		}
+        .btn{
+            background-color: #b30000;
+            outline:none;
+            border: white solid 1px;
+            border-radius: 0.5em;
+            color : white;
+        }
+        .btn:hover{
+            border:white solid 2px;
+            background-color: red;
+        }
+		  body{
+  background-image: url("floral.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-attachment: fixed;
+}
+	</style>
+</head>
+<body>
+<div class="mainframe">
+	<img src="logo.PNG"  style="margin-left: 13.5%;">
+	<div>
+        <h2 style="color: #b30000; text-align: center;">Sign Up</h2>
+        <form action="/users" method="POST">
+		<table style="width: 100%;"><thead><th width="30%"></th><th width="70%"></th></thead><tbody><tr>
+			<td>First Name</td>
+			<td>:<input type="text" name="fname" placeholder="First name" class="inputs" id="first_name"></td>
+        </tr>
+        <tr>
+			<td>Last Name</td>
+			<td>:<input type="text" name="lname" placeholder="Last name" class="inputs" id="last_name"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td>:<input type="email" name="email" placeholder="email" class="inputs" id="email"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>:<input type="Password" name="pwd" placeholder="password" class="inputs" id="password"></td>
+        </tr>
+        <tr>
+			<td>Confirm Password</td>
+			<td>:<input type="Password" name="cnfpwd" placeholder="confirm password" class="inputs" id="confirm_password"></td>
+		</tr>
+			<tr>
+				<td>Phone Number</td>
+				<td>:<input type="text" name="no" placeholder="Phone Number" class="inputs" id="phone_number"></td>
+			</tr>
+		
+		</tbody></table>
+		<button class="btn" style="margin-left: 40%; margin-top: 5%; height: 35px;" type="submit" onsubmit="return validateForm()">Create Account</button><br>
+    </form>
+    </div>
+</div>
+</body>
+</html>

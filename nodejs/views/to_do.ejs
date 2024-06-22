@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/3c6b6ab868.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		body {
+			
+	background-image: url("background.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment: fixed; 
+}
+
+#content {
+	width:50%;
+	margin: 7% auto;
+	background: #f7f7f7;
+}
+
+.strike {
+	color: rgb(128,128,128);
+	text-decoration: line-through;
+}
+
+.normal {
+	color: black;
+	text-decoration: none;
+}
+
+h1 {
+	/*background: #6d706c;*/
+	background:#2989e3;
+	color: white;
+	margin: 0;
+	padding: 20px 20px 0px 20px;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: normal;
+	height: 60px
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.fa-edit {
+	float: right;
+}
+
+li {
+	box-sizing: border-box;
+	background: #fff;
+	height: 50px;
+	line-height: 40px;
+	color: #666;
+	font-size: 20px;
+	
+}
+
+li:nth-child(2n){
+	background: #f7f7f7;
+}
+
+.remove{
+	float: right;
+	background: rgb(235, 76, 60);
+	height: 50px;
+	width: 0;
+	display: inline-block;
+	text-align: center;
+	color: white;
+	transition: 0.3s linear;
+	opacity: 0;
+}
+li:hover .remove {
+	width: 80px;
+	opacity: 1.0;
+}
+.check {
+	float: left;
+	height: 50px;
+	margin-right: 20px;
+	width: 0;
+	display: inline-block;
+	text-align: center;
+	color: white;
+	transition: 0.3s linear;
+	opacity: 0;
+}
+li:hover .check {
+	width: 25px;
+	opacity: 1.0;
+}
+
+
+
+input {
+	box-sizing: border-box;
+	font-size: 20px;
+	color:  #6d706c;
+	background-color: #f7f7f7;
+	width: 100%;
+	padding: 15px 15px 15px 15px;
+	box-sizing: border-box;
+	border: 5px solid rgba(0,0,0,0);
+}
+
+input:focus{
+	background: #fff;
+	/*border: 3px solid #6d706c;*/
+	border: 3px solid #ff8e1c;
+	outline: none;
+}
+.navbar{
+			overflow: auto;
+			position: absolute;
+			background-color: #e6eeff;
+			padding-left: 2%;
+			width: 100%;
+			top: 0px;
+			left:0px;
+		}
+		.navbar_elements{
+			width: 8%;
+			display: inline;
+			float: left;
+			height: 30px;
+			border: 1px solid black;
+			border-radius: 0.5em;
+			color:  black;
+			text-align: center;
+			padding-top: 5px;
+			margin: 1%;	
+		}
+		.navbar_elements:hover{
+			background-color:#ccddff;
+			color:black;
+			border: black 1.5px solid;
+		}
+
+	</style>
+
+</head>
+<div class="navbar">
+	<a href="/"><div class="navbar_elements">
+		Home 
+	</div></a>
+	<a href="/booking"><div class="navbar_elements">
+		Hotels 
+	</div></a>
+	<a href="/to_do"><div class="navbar_elements">
+		Day Planner
+	</div></a>
+		<a href="/wayanad"><div class="navbar_elements">
+		Wayanad
+	</div></a>
+	<a href="/goa"><div class="navbar_elements">
+		Goa
+	</div></a>
+	<a href="/kashmir"><div class="navbar_elements">
+		Kashmir
+	</div></a>
+	<a href="/sundarbans"><div class="navbar_elements">
+		Sundarbans
+	</div></a>
+	<a href="/new_review"><div class="navbar_elements">
+		Write Review
+	</div></a>
+	<a href="/view_review"><div class="navbar_elements">
+		View Reviews
+	</div></a>
+</div>
+<body>
+	<div id="content">
+        <h1>TRAVEL - PLAN <i class="fas fa-edit"></i></h1>
+        
+        <form id="inputform" action="/todoform" method="post">
+
+            <input type="text" placeholder="Add New Task" name="newItem">
+        
+        </form>
+
+		<ul>
+            <% for(var i=0; i<newItems.length; i++){ %>
+                <form action="/checkbox" method="POST">
+                <li><span class = "check"><input type="checkbox" value="<%= newItems[i]._id %>" name="checkbox"></span><%= newItems[i].name %><span class="remove">Remove</span></li>
+            </form>
+                <% } %>
+        </ul>
+		<form style="display: none;" id="deleteform" action="/delete" method="post">
+			<input type="text" name="deleteitem" id="deleteitem" value="blank">
+			<button></button>
+		</form>
+	</div>
+<script type="text/javascript">
+	//striking completed tasks
+
+$("ul").on('click','.check', function(){
+	$(this).parent().toggleClass("strike");
+});
+ 
+ //click on Remove to delete
+ //select ul and not li so that when new li are added they too can get removed
+ 
+ $("ul").on('click','.remove',function(){
+ 	$(this).parent().fadeOut('slow',function(){
+ 		$(this).remove();
+	 });
+	var x= $(this).parent().children(".check").children().val();
+	$("#deleteitem").val(x);
+	$("#deleteform").submit();
+	
+ }); 
+ 
+ //creating new tasks
+
+ $(":text").keypress(function(event){
+ 	if (event.which===13){
+		$('#inputform').submit();
+ 	}
+ });
+ 
+ //hiding input bar
+
+ $('.fa-edit').click(function(){
+ 		$("#inputform").fadeToggle(500);
+ 	});
+</script>
+</body>
+</html> 
